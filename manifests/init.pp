@@ -6,4 +6,23 @@
 
 
 # modules_dir { "acpid": }
-class acpid {}
+class acpid {
+    include acpid::base 
+}
+
+class acpid::base {
+    package{acpid:
+        ensure => present,
+    }
+    service{acpid:
+        ensure => running,
+        enable => true,
+        require => Package[acpid],
+    }
+}
+
+class acpid::disable {
+    packge{acpid:
+        ensure => absent,
+    }
+}
