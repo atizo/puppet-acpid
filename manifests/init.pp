@@ -20,9 +20,3 @@ class acpid::base {
         require => Package[acpid],
     }
 }
-
-class acpid::disable {
-    packge{acpid:
-        ensure => absent,
-    }
-}
