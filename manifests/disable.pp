@@ -13,5 +13,6 @@ class acpid::disable inherits acpid::base {
         ensure => stopped,
         enable => false,
         hasstatus => false,
+        provider => base,
     }
 }
